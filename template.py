@@ -4,7 +4,7 @@ import logging
 
 logging.basicConfig(level=logging.INFO,filename='loginfo.log',format='[%(asctime)s]  [%(message)s]')
 
-package_name='Package_name'
+package_name='Ingredients_Checker'
 REQUIREMENTS_TXT_NAME="requirements.txt"
 
 list_of_files=[
