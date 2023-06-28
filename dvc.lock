@@ -1,0 +1,4 @@
+schema: '2.0'
+stages:
+  demo_stage:
+    cmd: python demo.py

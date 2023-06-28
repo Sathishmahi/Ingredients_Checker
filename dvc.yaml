@@ -1,0 +1,3 @@
+stages:
+  demo_stage:
+    cmd: python demo.py
