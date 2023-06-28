@@ -1,0 +1,1 @@
+from Ingredients_Checker.entity.config_entity import *

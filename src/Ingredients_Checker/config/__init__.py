@@ -1,0 +1,1 @@
+from Ingredients_Checker.config.configuration import Configuration

@@ -3,7 +3,6 @@ import setuptools
 with open("README.md", "r", encoding="utf-8") as f:
     long_description = f.read()
 
-print(long_description)
 __version__ = "0.0.0"
 
 REPO_NAME = "Ingredients_Checker"
@@ -16,9 +15,9 @@ setuptools.setup(
     version=__version__,
     author=AUTHOR_USER_NAME,
     author_email=AUTHOR_EMAIL,
-    description="this is a ingredients checker app",
-    # long_description=long_description,
-    # long_description_content="text/markdown",
+    description="A small python app  for ingredients checker",
+    long_description=long_description,
+    long_description_content="text/markdown",
     url=f"https://github.com/{AUTHOR_USER_NAME}/{REPO_NAME}",
     project_urls={
         "Bug Tracker": f"https://github.com/{AUTHOR_USER_NAME}/{REPO_NAME}/issues",

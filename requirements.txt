@@ -1,2 +1,9 @@
 dvc
 mkdocs-material
+super-gradients==3.1.0
+imutils
+torch
+ipykernel
+streamlit
+gdown
+-e .

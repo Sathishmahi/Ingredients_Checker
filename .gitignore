@@ -163,3 +163,4 @@ cython_debug/
 
 ### custom ignore
 *.pth
+*.zip
