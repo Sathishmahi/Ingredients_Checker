@@ -3,13 +3,16 @@ artifacts:
 
 ingredient_picker:
 
-  no_of_classes: 2
+  root_dir: ingredient_picker
+  no_of_classes:  2
+  yolo_model_name: yolo_nas_m
   trained_model_path: ckpt_best.pth
   save_image_dir_name: crop_images
   save_image_file_name: crop_image.jpg
 
 upsampling_img:
 
+  root_dir: upsampling
   model_path: ESRGAN/models/RRDB_ESRGAN_x4.pth
   upsample_image_dir_name: upsample_images
   upsample_image_file_name: up.jpg

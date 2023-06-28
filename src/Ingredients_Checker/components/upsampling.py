@@ -1,9 +1,12 @@
 import os.path as osp
-import glob
+from pathlb import Path
 import cv2
+import os
 import numpy as np
 import torch
 import RRDBNet_arch as arch
+from Ingredients_Checker.config import Configuration
+
 
 def upsample_image(model_path:Path,upsample_image_list:list[Path],save_image_path_list:list[Path]):
     model_path = model_path  # models/RRDB_ESRGAN_x4.pth OR models/RRDB_PSNR_x4.pth
@@ -35,3 +38,15 @@ def upsample_image(model_path:Path,upsample_image_list:list[Path],save_image_pat
         output = np.transpose(output[[2, 1, 0], :, :], (1, 2, 0))
         output = (output * 255.0).round()
         cv2.imwrite(save_path, output)
+
+if __name__=="__main__":
+    upsampling_config=Configuration().get_upsampling_config()
+    upsample_image_file_name=[Path(upsampling_config.upsample_image_file_name])
+    test_image_dir_path=upsampling_config.test_image_dir_path
+    test_images_path=[os.path.join(test_image_dir_path,img_name) for img_name in os.listdir(test_image_dir_path)]
+    model_path=upsampling_config.model_path
+    if len(upsample_image_file_name) != len(test_images_path):
+        raise Exception(f"upsample image name list {len(upsample_image_file_name)} and test image list {len(test_images_path)} must be same")
+
+    upsample_image(model_path=Path(model_path),upsample_image_list=test_images_path,save_image_path_list=upsample_image_file_name)
+    
