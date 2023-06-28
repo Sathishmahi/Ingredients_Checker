@@ -21,10 +21,14 @@ def get_bounding_box(test_image)->None:
                             checkpoint_path=trained_model_path)
 
     result=best_model.predict(test_image)
-    rgb_crop_img_arr=result.image
-    bgr_img=cv2.cvtColor(a.image, cv2.COLOR_BGR2RGB)
+    rgb_crop_img_arr=list(result)[0].image
+    bgr_img=cv2.cvtColor(rgb_crop_img_arr, cv2.COLOR_BGR2RGB)
     save_or_not=cv2.imwrite(f'{save_image_file_path}',bgr_img)
 
     if save_or_not:
-        return to_store_image_path
+        return save_or_not
     raise Exception(f'somthing went wrong please check the file path or other')
+
+
+if __name__=="__main__":
+    get_bounding_box("/config/workspace/src/1f783016-fc7c-11ed-b2b0-0242ac1c000c.jpg")

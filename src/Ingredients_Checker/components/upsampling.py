@@ -1,5 +1,5 @@
 import os.path as osp
-from pathlb import Path
+from pathlib import Path
 import cv2
 import os
 import numpy as np
@@ -19,14 +19,11 @@ def upsample_image(model_path:Path,upsample_image_list:list[Path],save_image_pat
     model.eval()
     model = model.to(device)
 
-    print('Model path {:s}. \nTesting...'.format(model_path))
 
     idx = 0
     for path,save_path in zip(upsample_image_list,save_image_path_list):
         idx += 1
         base = osp.splitext(osp.basename(path))[0]
-        print(idx, base)
-        # read images
         img = cv2.imread(path, cv2.IMREAD_COLOR)
         img = img * 1.0 / 255
         img = torch.from_numpy(np.transpose(img[:, :, [2, 1, 0]], (2, 0, 1))).float()
@@ -38,10 +35,11 @@ def upsample_image(model_path:Path,upsample_image_list:list[Path],save_image_pat
         output = np.transpose(output[[2, 1, 0], :, :], (1, 2, 0))
         output = (output * 255.0).round()
         cv2.imwrite(save_path, output)
+        print(f'file writed done {save_path}')
 
 if __name__=="__main__":
     upsampling_config=Configuration().get_upsampling_config()
-    upsample_image_file_name=[Path(upsampling_config.upsample_image_file_name])
+    upsample_image_file_name=[Path(upsampling_config.upsample_image_file_name)]
     test_image_dir_path=upsampling_config.test_image_dir_path
     test_images_path=[os.path.join(test_image_dir_path,img_name) for img_name in os.listdir(test_image_dir_path)]
     model_path=upsampling_config.model_path

@@ -3,8 +3,19 @@ from pathlib import Path
 from Ingredients_Checker.log import logging
 from Ingredients_Checker.constant import CONFIG_FILE_PATH
 import yaml
+from typing import Any
 
 
+
+def to_write_txt(file_path:Path,content:Any,append=False)->None:
+    
+    out_str=content
+    if isinstance(content, list | tuple ):
+        out_str="\n".join(content)
+    mode="a" if os.path.isfile(file_path) else "w"
+    with open(file_path,mode=mode) as f:
+        f.write(out_str)
+    
 
 def read_yaml(yaml_file_path:Path=CONFIG_FILE_PATH)->dict:
     

@@ -19,3 +19,12 @@ UpsamplingConfig=namedtuple("UpsamplingConnfig",
     "test_image_dir_path"
 ]
 )
+
+TextExtractorConfig=namedtuple("TextExtractorConfig", 
+[
+    "root_dir",
+    "ingredient_txt_file_name",
+    "prediction_image_file_path",
+    "model_lan"
+]
+)

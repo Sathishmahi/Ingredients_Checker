@@ -36,10 +36,18 @@ class UpsamplingConstant:
     UPSAMPLING_ROOT_KEY:str="upsampling_img"
     UPSAMPLING_ROOT_DIR_KEY:str="root_dir"
     UPSAMPLING_MODEL_PATH_KEY:str="model_path"
-    UPSAMPLING_IMAGE_DIR_NAME_KEY:str="upsample_images"
+    UPSAMPLING_IMAGE_DIR_NAME_KEY:str="upsample_image_dir_name"
     UPSAMPLING_IMAGE_NAME_KEY:str="upsample_image_file_name"
     UPSAMPLING_TEST_IMAGE_DIR_PATH_KEY:str="test_image_dir_path"
 
+
+@dataclass
+class TextExtractorConstant:
+
+    TEXTEXTRACTOR_ROOT_KEY:str="text_extractor"
+    TEXTEXTRACTOR_ROOT_DIR_KEY:str="root_dir"
+    TEXTEXTRACTOR_TXT_FILE_NAME_KEY:str="ingredient_txt_file_name"
+    TEXTEXTRACTOR_MODEL_LAN_KEY:str="model_lan"
 
 @dataclass
 class ArtifactConstant:

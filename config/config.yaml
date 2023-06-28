@@ -4,7 +4,7 @@ artifacts:
 ingredient_picker:
 
   root_dir: ingredient_picker
-  no_of_classes:  2
+  no_of_classes: 1
   yolo_model_name: yolo_nas_m
   trained_model_path: ckpt_best.pth
   save_image_dir_name: crop_images
@@ -17,6 +17,10 @@ upsampling_img:
   upsample_image_dir_name: upsample_images
   upsample_image_file_name: up.jpg
 
+text_extractor:
+  root_dir: text_extractor
+  ingredient_txt_file_name: ingre.txt
+  model_lan: en
 
 
 
